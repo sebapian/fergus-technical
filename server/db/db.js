@@ -3,9 +3,9 @@ const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
-  getFruits,
+  getJobs,
 }
 
-function getFruits(db = connection) {
-  return db('fruits').select()
+function getJobs(db = connection) {
+  return db('jobs').select()
 }

@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import { getFruits } from '../apiClient'
+import { getJobs } from '../apiClient'
 
 function App() {
   useEffect(() => {
-    getFruits()
-      .then((fruits) => {
-        console.log(fruits.body)
+    getJobs()
+      .then((jobs) => {
+        console.log(jobs.body)
       })
       .catch((err) => console.err(err.message))
   })
