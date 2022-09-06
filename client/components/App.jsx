@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { getJobs } from '../apiClient'
+import Header from './Header'
 
 function App() {
   useEffect(() => {
@@ -10,9 +11,12 @@ function App() {
       .catch((err) => console.err(err.message))
   })
   return (
-    <div>
-      <h1>This is a template with fruits!</h1>
-    </div>
+    <>
+      <Header />
+      <div>
+        <h1>This is a template with fruits!</h1>
+      </div>
+    </>
   )
 }
 

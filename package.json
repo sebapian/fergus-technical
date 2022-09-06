@@ -1,17 +1,18 @@
 {
-  "name": "react-to-web-api",
+  "name": "fergus-technical",
   "version": "0.2.1",
-  "description": "React components consuming Web APIs",
-  "repository": "https://github.com/dev-academy-challenges/react-to-web-api.git",
+  "description": "Fergus Technical Test",
+  "repository": "https://github.com/sebapian/fergus-technical",
   "main": "server/index.js",
   "scripts": {
     "start": "node server",
     "test": "jest --watchAll",
-    "dev": "run-p dev:client dev:server",
+    "dev": "run-p dev:client dev:server build:css",
     "dev:client": "webpack --watch --config client/webpack.config.js",
     "dev:server": "nodemon --watch server",
     "knex": "knex --knexfile server/db/knexfile.js",
-    "lint": "eslint --ext .js,.jsx ."
+    "lint": "eslint --ext .js,.jsx .",
+    "build:css": "npx tailwindcss -i client/input.css -o server/public/main.css --watch"
   },
   "babel": {
     "presets": [
