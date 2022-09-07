@@ -1,21 +1,61 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import { getJobs } from '../apiClient'
+import AddJob from './AddJob'
 import Header from './Header'
+import Card from './Card'
+import EditJob from './EditJob'
 
 function App() {
-  useEffect(() => {
+  const [jobs, setJobs] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+  const [reload, setReload] = useState(true)
+
+  function fetchJobs() {
+    setLoading(true)
+    setError('')
     getJobs()
       .then((jobs) => {
-        console.log(jobs.body)
+        setJobs(jobs.body)
       })
-      .catch((err) => console.err(err.message))
-  })
+      .finally(() => setLoading(false))
+      .catch((err) => console.error(err.message))
+  }
+
+  useEffect(() => {
+    fetchJobs()
+  }, [reload])
+
   return (
     <>
       <Header />
-      <div>
-        <h1>This is a template with fruits!</h1>
-      </div>
+      <main>
+        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+          {/* Replace with your content */}
+          <div className="px-4 py-6 sm:px-0">
+            <div className="h-screen rounded-lg p-3">
+              {loading ? (
+                <p>Loading</p>
+              ) : (
+                <Routes>
+                  <Route path="/" element={<Card props={jobs} />} />
+                  <Route
+                    path="/add"
+                    element={<AddJob setReload={setReload} />}
+                  />
+                  <Route
+                    path="/job/:id"
+                    element={<EditJob jobs={jobs} setReload={setReload} />}
+                  />
+                </Routes>
+              )}
+            </div>
+          </div>
+
+          {/* /End replace */}
+        </div>
+      </main>
     </>
   )
 }

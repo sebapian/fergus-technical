@@ -8,8 +8,8 @@ exports.seed = (knex) => {
         {
           id: 12001,
           name: '89 Fergus Street - Plumbing',
-          creation_date: '27/07/2022',
-          due_date: '6/08/2022',
+          creation_date: '2022-07-27',
+          due_date: '2022-08-06',
           status: 'Active',
           contact_name: 'Paul Walker',
           contact_detail: 'paul_walker@email.com',
@@ -19,8 +19,8 @@ exports.seed = (knex) => {
         {
           id: 12002,
           name: '63 Symond Street - Busted generator',
-          creation_date: '15/07/2022',
-          due_date: '20/07/2022',
+          creation_date: '2022-07-15',
+          due_date: '2022-07-20',
           status: 'Completed',
           contact_name: 'Dan Smith',
           contact_detail: 'dan_smith@email.com',
@@ -30,8 +30,8 @@ exports.seed = (knex) => {
         {
           id: 12003,
           name: '22 Wingardium Palace - Fix Shower',
-          creation_date: '10/09/2022',
-          due_date: '30/09/2022',
+          creation_date: '2022-09-10',
+          due_date: '2022-09-30',
           status: 'To price',
           contact_name: 'Lex Fridman',
           contact_detail: 'lex_fridman@email.com',
