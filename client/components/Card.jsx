@@ -59,7 +59,7 @@ function Card(props) {
             return (
               <a
                 href={`./job/${job.id}`}
-                className="block p-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 relative"
+                className="block p-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-4"
                 key={job.id}
               >
                 <h1 className="text-xl font-bold">{job.name}</h1>
