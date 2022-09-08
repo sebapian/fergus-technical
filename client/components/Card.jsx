@@ -1,10 +1,19 @@
 import React, { useState } from 'react'
 import { changeColor } from '../utils.js'
+import { Link } from 'react-router-dom'
 
 function Card(props) {
   const jobs = props.props
   const [search, setSearch] = useState('')
   const [filterSelect, setFilterSelect] = useState('All Status')
+
+  function filterBySearch(job) {
+    return (
+      search === '' ||
+      job.name.toLowerCase().includes(search.toLowerCase()) ||
+      job.id.toString().includes(search)
+    )
+  }
 
   return (
     <>
@@ -38,27 +47,14 @@ function Card(props) {
       <div className="grid grid-cols-3">
         {jobs
           .filter((job) => {
-            if (filterSelect === 'All Status') {
-              return job
-            } else if (job.status === filterSelect) {
-              return job
-            }
+            return filterSelect === 'All Status' || job.status === filterSelect
           })
-          .filter((job) => {
-            if (search === '') {
-              return job
-            } else if (
-              job.name.toLowerCase().includes(search.toLowerCase()) ||
-              job.id.toString().includes(search)
-            ) {
-              return job
-            }
-          })
+          .filter(filterBySearch)
 
           .map((job) => {
             return (
-              <a
-                href={`./job/${job.id}`}
+              <Link
+                to={`./job/${job.id}`}
                 className="block p-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-4"
                 key={job.id}
               >
@@ -76,7 +72,7 @@ function Card(props) {
                 <p className="text-lg">Due Date: {job.due_date}</p>
                 <p className="text-lg">Contact Name: {job.contact_name}</p>
                 <p className="text-lg">Contact Detail: {job.contact_detail}</p>
-              </a>
+              </Link>
             )
           })}
       </div>

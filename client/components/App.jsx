@@ -10,7 +10,6 @@ function App() {
   const [jobs, setJobs] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const [reload, setReload] = useState(true)
 
   function fetchJobs() {
     setLoading(true)
@@ -25,7 +24,7 @@ function App() {
 
   useEffect(() => {
     fetchJobs()
-  }, [reload])
+  }, [])
 
   return (
     <>
@@ -42,11 +41,11 @@ function App() {
                   <Route path="/" element={<Card props={jobs} />} />
                   <Route
                     path="/add"
-                    element={<AddJob setReload={setReload} />}
+                    element={<AddJob refetchJobs={fetchJobs} />}
                   />
                   <Route
                     path="/job/:id"
-                    element={<EditJob jobs={jobs} setReload={setReload} />}
+                    element={<EditJob jobs={jobs} refetchJobs={fetchJobs} />}
                   />
                 </Routes>
               )}

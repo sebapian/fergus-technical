@@ -22,7 +22,7 @@ function EditJob(props) {
   function handleSubmit(event) {
     event.preventDefault()
     updateJob(form, id)
-    props.setReload(form.name)
+    props.refetchJobs()
     navigate('/')
   }
 

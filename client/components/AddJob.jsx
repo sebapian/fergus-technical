@@ -23,10 +23,10 @@ function AddJob(props) {
     })
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
-    addJob(form)
-    props.setReload(form.name)
+    await addJob(form)
+    props.refetchJobs()
     navigate('/')
   }
 
