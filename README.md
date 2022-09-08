@@ -19,5 +19,5 @@
 ### Stetch:
 - Add photo attachments
 
-### Just for fun:
+### Just for fun (storyboard before starting):
 ![Storyboard](./wireframe.png)
