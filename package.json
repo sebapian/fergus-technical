@@ -27,7 +27,7 @@
       "bundle.js"
     ]
   },
-  "author": "Dev Academy Aotearoa",
+  "author": "Sebastian",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.15.6",
